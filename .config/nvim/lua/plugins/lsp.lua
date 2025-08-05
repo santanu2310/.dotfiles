@@ -202,18 +202,10 @@ return {
 		--  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-		local vue_language_server_path = vim.fn.expand("$MASON/packages")
-			.. "/vue-language-server"
-			.. "/node_modules/@vue/language-server"
-		local vue_plugin = {
-			name = "@vue/typescript-plugin",
-			location = vue_language_server_path,
-			languages = { "vue" },
-			configNamespace = "typescript",
-		}
+
 		local servers = {
 			-- clangd = {},
-			-- gopls = {},
+			gopls = {},
 			-- pyright = {},
 			-- rust_analyzer = {},
 			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -236,53 +228,23 @@ return {
 			jsonls = {},
 			yamlls = {},
 			vtsls = {
-				settings = {
-					vtsls = {
-						tsserver = {
-							globalPlugins = {
-								vue_plugin,
-							},
-						},
-					},
-				},
-				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
-			},
-			vue_ls = {
-				filetypes = { "vue" },
-				init_options = {
-					config = {
-						vue = {
-							hybridMode = false, -- Set to `true` if you need Vue 2 support
-						},
-					},
-				},
-			},
-
-			lua_ls = {
-				-- cmd = { ... },
-				-- filetypes = { ... },
-				-- capabilities = {},
-				settings = {
-					Lua = {
-						completion = {
-							callSnippet = "Replace",
-						},
-						untime = { version = "LuaJIT" },
-						workspace = {
-							checkThirdParty = false,
-							library = {
-								"${3rd}/luv/library",
-								unpack(vim.api.nvim_get_runtime_file("", true)),
-							},
-						},
-						diagnostics = { disable = { "missing-fields" } },
-						format = {
-							enable = false,
-						},
-						-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-						-- diagnostics = { disable = { 'missing-fields' } },
-					},
-				},
+				-- settings = {
+				-- 	vtsls = {
+				-- 		tsserver = {
+				-- 			globalPlugins = {
+				-- 				{
+				-- 					name = "@vue/typescript-plugin",
+				-- 					location = vim.fn.expand("$MASON/packages")
+				-- 						.. "/vue-language-server"
+				-- 						.. "/node_modules/@vue/language-server",
+				-- 					languages = { "vue" },
+				-- 					configNamespace = "typescript",
+				-- 				},
+				-- 			},
+				-- 		},
+				-- 	},
+				-- },
+				-- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
 			},
 		}
 
