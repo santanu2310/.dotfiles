@@ -11,19 +11,19 @@
         "hyprland/workspaces"
     ],
     "modules-center": [
-        "hyprland/window"
+        "clock"
     ],
     "modules-right": [
         // "idle_inhibitor",
         "pulseaudio",
+        "backlight",
         "network",
         "cpu",
         "memory",
         "temperature",
         // "hyprland/language",
         "battery",
-        "battery#bat2",
-        "clock"
+        "battery#bat2"
     ],
     //Modules configuration
 

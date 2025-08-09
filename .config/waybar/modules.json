@@ -23,7 +23,7 @@
     }
   },
   "pulseaudio": {
-    "format": "{icon}   {volume}%",
+    "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} {volume}%  {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
     "format-muted": " {format_source}",
@@ -38,41 +38,41 @@
       "car": "",
       "default": [
         "",
-        "",
-        ""
+        " ",
+        " "
       ]
     },
     "on-click": "pavucontrol"
   },
   "network": {
-    "format-wifi": "{icon}  {essid}",
+    "format-wifi": "<span>{icon}</span>{essid}",
     "format-ethernet": "{ipaddr}/{cidr} ",
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
     "on-click": "sh ~/scripts/rofi-wifi-menu/rofi-wifi-menu.sh",
     "format-icons": [
-      "󰤯",
-      "󰤟",
-      "󰤢",
-      "󰤥",
-      "󰤨"
+      "󰤯 ",
+      "󰤟 ",
+      "󰤢 ",
+      "󰤥 ",
+      "󰤨 "
     ]
   },
   "cpu": {
-    "format": "  {usage}%",
+    "format": "<span> </span>{usage}%",
     "tooltip": true
   },
   "memory": {
-    "format": "  {}%",
+    "format": "<span> </span>{}%",
     "tooltip": true
   },
   "temperature": {
     "interval": 10,
     "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
     "critical-threshold": 100,
-    "format-critical": " {temperatureC}",
-    "format": " {temperatureC}°C"
+    "format-critical": "<span></span>{temperatureC}",
+    "format": "<span> </span>{temperatureC}°C"
   },
   "hyprland/language": {
     "format": "  {}",
@@ -85,26 +85,38 @@
       "critical": 15
     },
     "interval": 5,
-    "format": "{icon}  {capacity}%",
-    "format-full": "{icon}  {capacity}%",
+    "format": "{icon} {capacity}%",
+    "format-full": "{icon} {capacity}%",
     "format-charging": "󱐋 {capacity}%",
-    "format-plugged": "  {capacity}%",
-    "format-alt": "{time}  {icon}",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
     "format-icons": [
-      "󰁺",
-      "󰁻",
-      "󰁼",
-      "󰁽",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰂂",
-      "󰁹"
+      "<span color='#FF0000'>󰁺</span>",
+      "<span color='#E61900'>󰁻</span>",
+      "<span color='#CC3300'>󰁼</span>",
+      "<span color='#B24C00'>󰁽</span>",
+      "<span color='#996600'>󰁾</span>",
+      "<span color='#7FB200'>󰁿</span>",
+      "<span color='#66CC00'>󰂀</span>",
+      "<span color='#4CE619'>󰂁</span>",
+      "<span color='#33FF33'>󰂂</span>",
+      "<span color='#00FF00'>󰁹</span>"
     ]
   },
   "battery#bat2": {
     "bat": "BAT2"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "<span color='#FFD700'>{icon}</span>{percent}% ",
+    "tooltip": true,
+    "tooltip-format": "当前屏幕亮度: {percent}%",
+    "format-icons": [
+      "<span color='#696969'> 󰃞 </span>",
+      "<span color='#A9A9A9'> 󰃝 </span>",
+      "<span color='#FFFF66'> 󰃟 </span>",
+      "<span color='#FFD700'> 󰃠 </span>"
+    ]
   },
   "clock": {
     "format": "{:%H:%M | %e %B} ",
